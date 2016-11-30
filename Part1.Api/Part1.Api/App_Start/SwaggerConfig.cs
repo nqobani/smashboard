@@ -153,8 +153,7 @@ namespace Part1.Api
                         // Xml comments (http://msdn.microsoft.com/en-us/library/b2s063f7(v=vs.110).aspx), you can incorporate
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
-                        //
-                        c.IncludeXmlComments(GetXmlCommentsPath());
+                        //c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
                         // to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
