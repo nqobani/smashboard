@@ -18,6 +18,8 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.Owin.Security.DataHandler.Encoder;
 using Microsoft.Owin.Security.Jwt;
 using Part1.Api.Providers;
+using System.Web.Http;
+
 
 [assembly: OwinStartup(typeof(Part1.Api.Startup))]
 namespace Part1.Api
@@ -40,6 +42,15 @@ namespace Part1.Api
                         new SymmetricKeyIssuerSecurityTokenProvider(authIssuer, authAudienceSecret)
                     }
                 });
+
+
+            HttpConfiguration config = new HttpConfiguration();
+            
+            WebApiConfig.Register(config);
+ 
+            app.UseWebApi(config);
+
+
             var container = UnityConfig.RegisterComponents(app.GetDataProtectionProvider());
             ConfigureAuth(app);
 
