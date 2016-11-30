@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using Part1.Api;
 using Swashbuckle.Application;
+using System.Net;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -207,11 +208,21 @@ namespace Part1.Api
                         // the Swagger 2.0 specification, you can enable UI support as shown below.
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
+
+
+
                     });
         }
         private static string GetXmlCommentsPath()
         {
-            return System.String.Format(@"{0}/Part1.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            string s = "";
+            string url= System.String.Format("https://raw.githubusercontent.com/nqobani/smashboard/master/Part1.Api/Part1.Api/Part1.Api.XML");
+            using (WebClient client = new WebClient())
+            {
+                s = client.DownloadString(url);
+
+            }
+            return System.String.Format(s);
         }
     }
 }
