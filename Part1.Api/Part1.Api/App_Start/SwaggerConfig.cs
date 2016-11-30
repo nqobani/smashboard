@@ -209,9 +209,9 @@ namespace Part1.Api
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
         }
-        protected static string GetXmlCommentsPath()
+        private static string GetXmlCommentsPath()
         {
-            return System.String.Format(@"{0}\bin\Part1.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            return System.String.Format(@"{0}/bin/Part1.Api.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }
